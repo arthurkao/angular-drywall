@@ -210,7 +210,7 @@ module.exports = function(grunt) {
       html: ['<%= distdir %>/index.html']
     },
     forever: {
-      server1: {
+      drywall: {
         options: {
           index: 'app.js',
           logDir: 'logs'
@@ -243,7 +243,7 @@ module.exports = function(grunt) {
   grunt.registerTask('test', ['clean', 'lint']);
 
   grunt.registerTask('dev', ['clean', 'angular', 'concurrent']);
-  grunt.registerTask('production', ['clean', 'angular', 'useminPrepare', 'concat:generated', 'uglify:generated', 'cssmin:generated', 'usemin', 'forever:server1:start']);
+  grunt.registerTask('production', ['clean', 'angular', 'useminPrepare', 'concat:generated', 'uglify:generated', 'cssmin:generated', 'usemin', 'forever:drywall:start']);
 
   grunt.registerTask('default', ['dev']);
 };
