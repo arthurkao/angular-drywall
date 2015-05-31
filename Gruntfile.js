@@ -208,6 +208,14 @@ module.exports = function(grunt) {
     },
     usemin: {
       html: ['<%= distdir %>/index.html']
+    },
+    forever: {
+      server1: {
+        options: {
+          index: 'app.js',
+          logDir: 'logs'
+        }
+      }
     }
   });
 
@@ -225,6 +233,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-usemin');
   grunt.loadNpmTasks('grunt-html2js');
   grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-forever');
 
 
   grunt.registerTask('angular', ['copy', 'html2js', 'concat:angular', 'sass:dev']);
@@ -234,7 +243,7 @@ module.exports = function(grunt) {
   grunt.registerTask('test', ['clean', 'lint']);
 
   grunt.registerTask('dev', ['clean', 'angular', 'concurrent']);
-  grunt.registerTask('production', ['clean', 'angular', 'useminPrepare', 'concat:generated', 'uglify:generated', 'cssmin:generated', 'usemin']);
+  grunt.registerTask('production', ['clean', 'angular', 'useminPrepare', 'concat:generated', 'uglify:generated', 'cssmin:generated', 'usemin', 'forever:server1:start']);
 
   grunt.registerTask('default', ['dev']);
 };
