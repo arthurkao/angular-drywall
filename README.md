@@ -104,6 +104,7 @@ Login. Customize. Enjoy.
 ### Production
 
 Production mode uses [grunt-forever](https://github.com/bustardcelly/grunt-forever).
+
 Start as a daemon:
 
 ```grunt production```
