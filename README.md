@@ -77,8 +77,6 @@ $ mongo # use mongo shell to insert required documents. Refer to ./init.js for t
 
 ## Running the app
 
-### Development
-
 ```bash
 $ grunt
 
@@ -101,17 +99,6 @@ Now [Angular-Drywall](http://arthurkao.github.io/angular-drywall) should be up a
 
 Login. Customize. Enjoy.
 
-### Production
-
-Production mode uses [grunt-forever](https://github.com/bustardcelly/grunt-forever).
-
-Start as a daemon:
-
-```grunt production```
-
-Stop:
-
-```grunt forever:drywall:stop```
 
 ## Philosophy
 
