@@ -104,9 +104,13 @@ Login. Customize. Enjoy.
 ### Production
 
 Production mode uses [grunt-forever](https://github.com/bustardcelly/grunt-forever).
-`grunt production` starts the application as a daemon.
+Start as a daemon:
 
-Use `grunt forever:drywall:stop` to stop the application.
+```grunt production```
+
+Stop:
+
+```grunt forever:drywall:stop```
 
 ## Philosophy
 
