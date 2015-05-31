@@ -243,7 +243,8 @@ module.exports = function(grunt) {
   grunt.registerTask('test', ['clean', 'lint']);
 
   grunt.registerTask('dev', ['clean', 'angular', 'concurrent']);
-  grunt.registerTask('production', ['clean', 'angular', 'useminPrepare', 'concat:generated', 'uglify:generated', 'cssmin:generated', 'usemin', 'forever:drywall:start']);
+  grunt.registerTask('buildProduction', ['clean', 'angular', 'useminPrepare', 'concat:generated', 'uglify:generated', 'cssmin:generated', 'usemin']);
+  grunt.registerTask('runProduction', ['buildProduction', 'forever:drywall:start']);
 
   grunt.registerTask('default', ['dev']);
 };
