@@ -113,7 +113,8 @@ module.exports = function(grunt) {
       dev: {
         options: {
           style: 'expanded',
-          compass: false
+          compass: false,
+          loadPath: '.'
         },
         files: {
           '<%= distdir %>/css/style.css': 'client/src/assets/sass/style.scss'
@@ -208,14 +209,6 @@ module.exports = function(grunt) {
     },
     usemin: {
       html: ['<%= distdir %>/index.html']
-    },
-    forever: {
-      drywall: {
-        options: {
-          index: 'app.js',
-          logDir: 'logs'
-        }
-      }
     }
   });
 
@@ -233,7 +226,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-usemin');
   grunt.loadNpmTasks('grunt-html2js');
   grunt.loadNpmTasks('grunt-karma');
-  grunt.loadNpmTasks('grunt-forever');
 
 
   grunt.registerTask('angular', ['copy', 'html2js', 'concat:angular', 'sass:dev']);
@@ -243,8 +235,7 @@ module.exports = function(grunt) {
   grunt.registerTask('test', ['clean', 'lint']);
 
   grunt.registerTask('dev', ['clean', 'angular', 'concurrent']);
-  grunt.registerTask('buildProduction', ['clean', 'angular', 'useminPrepare', 'concat:generated', 'uglify:generated', 'cssmin:generated', 'usemin']);
-  grunt.registerTask('runProduction', ['buildProduction', 'forever:drywall:start']);
+  grunt.registerTask('production', ['clean', 'angular', 'useminPrepare', 'concat:generated', 'uglify:generated', 'cssmin:generated', 'usemin']);
 
   grunt.registerTask('default', ['dev']);
 };
